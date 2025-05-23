@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Properties</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Hi, {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'user_properties' %}">My Properties</a>
+    {% endif %}
+
+    <h1>Available Properties</h1>
+    {% for property in properties %}
+        <div>
+            <h2>{{ property.title }}</h2>
+            <p>{{ property.location }} - ₹{{ property.price }}</p>
+            <p>{{ property.description }}</p>
+            <a href="{% url 'property_detail' property.id %}">
+                <img src="{{ property.image.url }}" alt="{{ property.title }}" style="max-width:200px;" />
+            </a>
+            <p> {{ property.created_at }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>

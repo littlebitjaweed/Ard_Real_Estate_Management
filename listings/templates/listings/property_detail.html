@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ property.title }}</title>
+</head>
+<body>
+    <h1>{{ property.title }}</h1>
+    <img src="{{ property.image.url }}" alt="{{ property.title }}" style="max-width:400px;" />
+    <p><strong>Location:</strong> {{ property.location }}</p>
+    <p><strong>Price:</strong> ${{ property.price }}</p>
+    <p><strong>Type:</strong> {{ property.property_type }}</p>
+    <p><strong>Description:</strong> {{ property.description }}</p>
+
+    <a href="{% url 'property_list' %}">Back to listings</a>
+</body>
+</html>

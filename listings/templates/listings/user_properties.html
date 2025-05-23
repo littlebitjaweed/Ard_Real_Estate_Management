@@ -1,0 +1,18 @@
+<h1>My Properties</h1>
+
+<a href="{% url 'property_add' %}">Add New Property</a>
+
+<ul>
+  {% for property in properties %}
+    <li>
+      {{ property.title }} - {{ property.location }}
+      <img src="{{ property.image.url }}" alt="{{ property.title }}" style="max-width:200px;" />
+      <br>
+      <a href="{% url 'property_edit' property.id %}">Edit</a> |
+      <a href="{% url 'property_delete' property.id %}">Delete</a>
+    </li>
+    <hr>
+  {% empty %}
+    <li>You have no properties listed.</li>
+  {% endfor %}
+</ul>
