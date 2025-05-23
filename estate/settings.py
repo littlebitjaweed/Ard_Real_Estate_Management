@@ -78,15 +78,13 @@ WSGI_APPLICATION = "estate.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-import dj_database_url
+import dj_database_url  # You’ll need to install this package
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600
+        default=os.environ.get('DATABASE_URL')
     )
 }
-
 
 
 # Password validation
