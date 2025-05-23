@@ -1,6 +1,6 @@
 # Ard - Real Estate Management App
-URL: https://ard-9cpt.onrender.com/
-Ard is a simple real estate management website built using Django.  
+URL: https://ard-9cpt.onrender.com/ <br>
+Ard is a simple real estate management website built using Django, and deployed on cloud platform Render.  
 It allows users to:
 
 - Sign up and log in
